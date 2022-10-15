@@ -1,0 +1,9 @@
+/log/*
+!/log/.keep
+/tmp
+.git
+.env.example
+.env
+.gitignore
+CHANGELOG.md
+README.md

@@ -8,10 +8,28 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - dev_db_folder:/var/lib/postgresql/data
-  cache:
+      - devs_db_folder:/var/lib/postgresql/data
+  live-reload:
     image: redis:6.2-alpine
     ports:
       - '6379:6379'
+  web:
+    build: .
+    command: bin/dev_docker
+    environment:
+      DB_HOST: db
+      REDIS_URL: "redis://live-reload:6379/1"
+      DOCKERIZED: true
+    env_file:
+      - .env
+    volumes:
+      - .:/himzosch:delegated
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - live-reload
+    profiles:
+      - full_docker
 volumes:
-  dev_db_folder:
+  devs_db_folder:

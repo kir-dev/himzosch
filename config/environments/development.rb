@@ -8,6 +8,10 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  if ENV['DOCKERIZED'] == 'true'
+    config.web_console.whitelisted_ips = ENV['DOCKER_HOST_IP']
+  end
+
   # Do not eager load code on boot.
   config.eager_load = false
 

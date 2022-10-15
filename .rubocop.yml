@@ -1,0 +1,28 @@
+require:
+  - rubocop-rails
+
+AllCops:
+  NewCops: disable
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'bin/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - '.git/**/*'
+    - '.github/**/*'
+
+Metrics/AbcSize:
+  Max: 30
+Metrics/BlockLength:
+  Max: 50
+Metrics/MethodLength:
+  Max: 20
+Layout/LineLength:
+  Max: 120
+
+# Disabled cops
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false

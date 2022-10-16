@@ -2,6 +2,7 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import Alpine from "alpinejs"
+import "flowbite"
 
 window.Alpine = Alpine
 

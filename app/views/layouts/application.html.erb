@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Himzosch</title>
+    <title>Pulcsi és Foltmékör</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= favicon_link_tag "favicon-64.png" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
@@ -12,9 +13,12 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="flex flex-col min-h-screen text-gray-800 transition-colors duration-300 bg-gradient-to-b from-white to-green-100">
+    <div id="alert" class="fixed z-50 cursor-pointer"></div>
+    <%= render "layouts/header" %>
+    <main class="flex-1 container mx-auto py-12 px-2">
       <%= yield %>
     </main>
+    <%= render "layouts/footer" %>
   </body>
 </html>

@@ -25,7 +25,7 @@ services:
 volumes:
   himzosch_db:
     external:
-      name: himzosch_db
+      name: "${DB_VOLUME_NAME}"
 
 networks:
   himzosch_network:

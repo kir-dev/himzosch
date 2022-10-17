@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="visual"
+   viewBox="0 0 900 250"
+   width="900"
+   height="250"
+   version="1.1"
+   sodipodi:docname="stacked-waves-haikei (1).svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs11" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="0.84734963"
+     inkscape:cx="377.05805"
+     inkscape:cy="308.01925"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="visual" />
+  <path
+     d="m 0,152.69804 30,12 c 30,12 90,36 150,42 60,6 120,-6 180,-4 60,2 120,18 180,12 60,-6 120,-34 180,-36 60,-2 120,22 150,34 l 30,12 V 78.698041 l -30,-12 c -30,-12 -90,-35.999999 -150,-33.999999 -60,2 -120,29.999999 -180,35.999999 -60,6 -120,-10 -180,-10 -60,0 -120,16 -180,10 -60,-6 -120,-33.999999 -150,-47.999999 L 0,6.6980414 Z"
+     fill="#36b796"
+     id="path4" />
+</svg>

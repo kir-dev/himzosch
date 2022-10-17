@@ -4,6 +4,7 @@ This is the rails based web project of the **Pulcsi és Foltmékör** group
 
 ## Requirements
  * Ruby 3.0.3
+ * Node.js
  * Postgresql 15.0
  * Redis (for hot reload during development)
  
@@ -21,6 +22,7 @@ For the application to run you need to setup a database and optionally a Redis i
  * Set up Postgresql DB with default user/password `postgres/postgres`
  * Copy the `.env.example` file to `.env` and set up the DB port
  * Run `rails db:setup` to create the databases
+ * Run `npm i` to install flowbite (Tailwind components library)
 
  * **WITH Rails 7 You have to run with `bin/dev` instead of `rails s`**
 
@@ -30,10 +32,12 @@ For the application to run you need to setup a database and optionally a Redis i
  * There is a `docker-compose.dev.yml` file to set up DB and Redis for you
  * Run `docker compose -f docker-compose.dev.yml up -d`
  * After running you can set up the db with `rails db:setup`
+ * Run `npm i` to install flowbite (Tailwind components library)
  * **Run the app with `bin/dev`**
 
 ### Full docker setup (Recommended)
  * Create a `.env` file from the example
+ * Run `npm i` to install flowbite (Tailwind components library)
  * Build image with 
 ```bash
  docker compose -f docker-compose.dev.yml --profile=full_docker build

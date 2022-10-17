@@ -1,13 +1,47 @@
+#alert {
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/*
-
 @layer components {
+  .animate-hover {
+    @apply transition-colors duration-200;
+  }
+
+  .btn {
+    @apply px-4 py-2 border-none rounded-full;
+  }
+
   .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+    @apply px-4 py-3 bg-red-600 text-white text-xs font-semibold rounded hover:bg-red-800;
+  }
+
+  .btn-secondary {
+    @apply px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400;
+  }
+
+  .link {
+    @apply font-medium text-red-600 hover:underline
+  }
+
+  .title {
+    @apply inline-block w-auto px-6 py-3 mb-0 text-2xl font-bold bg-gray-50;
+  }
+
+  .subtitle {
+    @apply inline-block w-auto px-6 py-3 text-xl font-semibold bg-gray-50 my-3;
+  }
+
+  .nav-link {
+    @apply hover:text-red-800 animate-hover;
+  }
+
+  .form-element {
+    @apply dark:bg-gray-800;
   }
 }
-
-*/

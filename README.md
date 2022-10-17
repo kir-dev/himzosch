@@ -32,10 +32,12 @@ For the application to run you need to setup a database and optionally a Redis i
  * There is a `docker-compose.dev.yml` file to set up DB and Redis for you
  * Run `docker compose -f docker-compose.dev.yml up -d`
  * After running you can set up the db with `rails db:setup`
+ * Run `npm i` to install flowbite (Tailwind components library)
  * **Run the app with `bin/dev`**
 
 ### Full docker setup (Recommended)
  * Create a `.env` file from the example
+ * Run `npm i` to install flowbite (Tailwind components library)
  * Build image with 
 ```bash
  docker compose -f docker-compose.dev.yml --profile=full_docker build

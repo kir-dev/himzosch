@@ -1,0 +1,35 @@
+
+  <% if notice.present? %>
+    <div class="bg-gray-200">
+      <p class="py-2 px-3 mb-5 text-green-500 font-medium text-center" id="notice"><%= notice %></p>
+    </div>
+    <br>
+  <% end %>
+
+<div class="inline-flex flex-col w-full">
+  <div class="inline-flex flex-col mx-auto md:w-2/3 w-full lg:w-1/2 lg:justify-center">
+  <h1 class="mb-8 text-center text-3xl font-bold">Legutóbbi híreink</h1>
+
+  <div class="right-full py-4">
+    <%= link_to 'Új cikk', new_article_path, class: "m-20 btn-primary" %>
+  </div>
+  <br>
+  <ol class="justify-start inline-block">
+    <% @articles.each do |article| %>
+      <li class="relative flex-1 mb-6 sm:mb-0">
+        <div class="mt-3 sm:pr-8">
+          <h2 class="text-3xl font-bold"><%= article.title %></h2>
+          <time class="block mb-2 text-sm font-normal leading-none text-gray-400"><%= article.updated_at.in_time_zone('Budapest').strftime('%Y. %B %e. %H:%M') %></time>
+          <p class="text-base font-normal text-gray-500">
+            <%= article.intro %>
+            <br>
+            <%= link_to "Tovább olvasom...", article, class: "link" %>
+          </p>
+        </div>
+        <br>
+        <hr>
+      </li>
+    <% end %>
+  </ol>
+  </div>
+</div>

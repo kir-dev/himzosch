@@ -1,0 +1,12 @@
+<div class="inline-flex flex-col w-full">
+  <div class="inline-flex flex-col mx-auto md:w-2/3 w-full lg:w-1/2 lg:justify-center">
+    <h1 class="mb-2 text-3xl font-bold text-center">Új cikk</h1>
+
+    <%= render "form", article: @article %>
+
+    <br>
+    <div class="mt-20">
+      <%= link_to 'Vissza a cikkekhez', articles_path, class: "py-3 px-5 btn-secondary" %>
+    </div>
+  </div>
+</div>

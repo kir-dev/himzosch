@@ -1,13 +1,13 @@
-
-  <% if notice.present? %>
-    <div class="bg-gray-200">
-      <p class="py-2 px-3 mb-5 text-green-500 font-medium text-center" id="notice"><%= notice %></p>
-    </div>
-    <br>
-  <% end %>
-
 <div class="inline-flex flex-col w-full">
   <div class="inline-flex flex-col mx-auto md:w-2/3 w-full lg:w-1/2 lg:justify-center">
+
+  <% if notice.present? %>
+      <div class="bg-gray-200">
+        <p class="py-2 px-3 mb-5 text-green-500 font-medium text-center" id="notice"><%= notice %></p>
+      </div>
+      <br>
+  <% end %>
+
   <h1 class="mb-8 text-center text-3xl font-bold">Legutóbbi híreink</h1>
 
   <div class="right-full py-4">

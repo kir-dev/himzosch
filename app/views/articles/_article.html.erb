@@ -1,0 +1,29 @@
+<div id="<%= dom_id article %>">
+  <% if action_name == "index" %>
+    <h2 class="my-5">
+      <strong class="block font-medium text-2xl mb-1"><%= article.title %></strong>
+    </h2>
+  <% end %>
+
+  <% if action_name == "index" %>
+    <p class="my-5">
+      <strong class="block font-medium mb-1"><%= article.intro %></strong>
+    </p>
+  <% end %>
+
+  <% if action_name == "show" %>
+    <h1 class="mb-8 text-center text-3xl font-bold"><%= article.title %></h1>
+  <% end %>
+
+  <% if action_name == "show" %>
+    <p class="my-5 font-medium mb-1 text-justify"><%= article.content %></p>
+  <% end %>
+
+  <% if action_name != "show" %>
+    <div class="object-right-bottom inline-flex">
+      <%= link_to "Show this article", article, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this article', edit_article_path(article), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    </div>
+  <% end %>
+</div>

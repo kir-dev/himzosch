@@ -1,0 +1,25 @@
+<div class="inline-flex flex-col w-full">
+  <div class="inline-flex flex-col mx-auto md:w-2/3 w-full lg:w-1/2 lg:justify-center">
+    <% if notice.present? %>
+      <div class="bg-gray-200">
+        <p class="py-2 px-3 mb-5 text-green-500 font-medium text-center" id="notice"><%= notice %></p>
+      </div>
+      <br>
+    <% end %>
+
+    <%= render @article %>
+
+    <br>
+    <div class="mt-20">
+      <%= link_to 'Cikk szerkesztése', edit_article_path(@article), class: "py-3 px-5 btn-secondary" %>
+    </div>
+    <br>
+    <div class="mt-20">
+      <%= button_to 'Cikk törlése', article_path(@article), method: :delete, class: "py-3 px-5 btn-secondary" %>
+    </div>
+    <br>
+    <div class="mt-20">
+      <%= link_to 'Vissza a cikkekhez', articles_path, class: "py-3 px-5 btn-secondary" %>
+    </div>
+  </div>
+</div>

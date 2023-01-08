@@ -1,0 +1,26 @@
+<h1 class="mb-8 text-3xl font-bold">Felhasználók</h1>
+
+<table class="">
+  <thead>
+    <tr>
+      <th>Név</th>
+      <th>Email</th>
+      <th>Admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.admin %></td>
+        <td><%= link_to 'Megtekintés', user %></td>
+        <td><%= link_to 'Szerkesztés', edit_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -25,12 +25,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:authsch]
 
+  validates :name, presence: true
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.find_by(email: data['email'])
       
     unless user
-    user = User.create(name: data['displayName'],
+    user = User.create(name: data['email'],
                         email: data['email'],
                         password: Devise.friendly_token[0,20])
     end

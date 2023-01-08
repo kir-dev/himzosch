@@ -6,10 +6,9 @@
 
     <%= render @user %>
 
-    <%= link_to 'Edit this user', edit_user_path(@user), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this user', user_path(@user), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+    <br>
+    <div class="w-full flex justify-center">
+      <%= link_to 'Szerkesztés', edit_user_path(@user), class: "mt-2 bg-gray-200 px-5 text-xs rounded-lg py-3 inline-block font-medium" %>
     </div>
-    <%= link_to 'Back to users', users_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </div>
 </div>

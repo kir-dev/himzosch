@@ -11,17 +11,20 @@
     </div>
   <% end %>
 
-  <div class="my-5">
-    <%= form.label :name %>
+  <div class="my-5 flex w-full justify-center">
+    <p>Név:</p>
+  </div>
     <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
-  <div class="my-5">
-    <%= form.label :admin %>
-    <%= form.check_box :admin, class: "block mt-2 h-5 w-5" %>
+  <% if current_user.admin? %>
+  <br>
+  <div class="my-5 flex w-full justify-center">
+    <p>Admin: </p>
+    <%= form.check_box :admin, class: "block mt-1 ml-3 h-5 w-5"%>
   </div>
+  <% end %>
 
-  <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <div class="w-full flex justify-center">
+    <%= form.submit class: "mt-2 bg-gray-200 px-5 text-xs rounded-lg py-3 inline-block font-medium" %>
   </div>
 <% end %>

@@ -24,7 +24,18 @@
         <a class="nav-link" href="/orders">Rendelés</a>
         <a class="nav-link" href="/faq">GYIK</a>
         <a class="nav-link" href="/images">Galéria</a>
-        <a class="btn btn-primary animate-hover" href="/auth/oauth">Belépés</a></div>
+        <% if logged_in? %>
+          <div class="dropdown">
+            <button class="dropbtn"><%= current_user.name %></button>
+            <div class="dropdown-content">
+              <%= link_to "Profilom", user_path(current_user), :class => "item" %>
+              <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
+              <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete  %>
+            </div>
+          </div>
+        <% else %>
+          <%= link_to "Belépés", "/users/sign_in", :class => "self-start flex-initial text-center btn btn-primary animate-hover" %></div>
+        <% end %>
     </div>
   </nav>
   <template x-if="open">
@@ -33,7 +44,18 @@
       <a class="text-lg nav-link" href="/orders">Rendelés</a>
       <a class="text-lg nav-link" href="/orders">GYIK</a>
       <a class="text-lg nav-link" href="/images">Galéria</a>
-      <a class="self-start flex-initial text-center btn btn-primary animate-hover" href="/auth/oauth">Belépés</a>
+      <% if logged_in? %>
+        <div class="dropdown">
+            <button class="dropbtn"><%= current_user.name %></button>
+            <div class="dropdown-content">
+              <%= link_to "Profilom", user_path(current_user), :class => "item" %>
+              <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
+              <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete  %>
+            </div>
+          </div>
+      <% else %>
+        <%= link_to "Belépés", "/users/sign_in", :class => "self-start flex-initial text-center btn btn-primary animate-hover" %>
+      <% end %>
     </nav>
   </template>
 </header>

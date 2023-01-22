@@ -24,7 +24,7 @@
         <a class="nav-link" href="/orders">Rendelés</a>
         <a class="nav-link" href="/faq">GYIK</a>
         <a class="nav-link" href="/images">Galéria</a>
-        <% if logged_in? %>
+        <% if user_signed_in? %>
           <div class="dropdown">
             <button class="dropbtn"><%= current_user.name %></button>
             <div class="dropdown-content">
@@ -44,7 +44,7 @@
       <a class="text-lg nav-link" href="/orders">Rendelés</a>
       <a class="text-lg nav-link" href="/orders">GYIK</a>
       <a class="text-lg nav-link" href="/images">Galéria</a>
-      <% if logged_in? %>
+      <% if user_signed_in? %>
         <div class="dropdown">
             <button class="dropbtn"><%= current_user.name %></button>
             <div class="dropdown-content">

@@ -27,13 +27,13 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.find_by(email: data['email'])
+  def self.from_omniauth(auth)
+    data = auth.extra.raw_info
+    user = User.find_by(email: data.mail)
       
     unless user
-    user = User.create(name: data['email'],
-                        email: data['email'],
+    user = User.create(name: data.displayName,
+                        email: data.mail,
                         password: Devise.friendly_token[0,20])
     end
     user

@@ -1,0 +1,16 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <h1 class="mb-8 text-3xl text-center font-bold">Szerkesztés</h1>
+
+    <%= render "form", user: @user %>
+
+    <br>
+    <div class="w-full flex justify-center">
+      <%= link_to 'Vissza', @user, class: "mt-2 bg-gray-200 px-5 text-xs rounded-lg py-3 inline-block font-medium" %>
+    </div>
+  </div>
+</div>

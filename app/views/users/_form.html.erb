@@ -1,0 +1,30 @@
+<%= form_with(model: user, class: "contents") do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5 flex w-full justify-center">
+    <p>Név:</p>
+  </div>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+
+  <% if current_user.admin? %>
+  <br>
+  <div class="my-5 flex w-full justify-center">
+    <p>Admin: </p>
+    <%= form.check_box :admin, class: "block mt-1 ml-3 h-5 w-5"%>
+  </div>
+  <% end %>
+
+  <div class="w-full flex justify-center">
+    <%= form.submit class: "mt-2 bg-gray-200 px-5 text-xs rounded-lg py-3 inline-block font-medium" %>
+  </div>
+<% end %>

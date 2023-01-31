@@ -1,0 +1,14 @@
+<% frame_id = dom_id(@content, "edit_turbo_frame") %>
+<%= turbo_frame_tag frame_id do %>
+
+  <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-black">
+    <%= @content.title %>
+    <% if admin? %>
+      <%= link_to edit_site_content_path(@content) do %>
+        <i class="fa-solid fa-pen-to-square text-black"></i>
+      <% end %>
+    <% end %>
+  </h1>
+  <%= @content.content %>
+
+<% end %>

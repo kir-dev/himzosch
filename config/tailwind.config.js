@@ -14,6 +14,14 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
     },
+    colors: {
+      primary: '#58b563',
+      primary_light: '#B1D7B4',
+      secondary: '#7FB77E',
+      neutral: '#F7F6DC',
+      background_light: '#fff9f4',
+      background_dark: '#ffecde',
+    },
     screens: {
       'sm': '640px',
       // => @media (min-width: 640px) { ... }

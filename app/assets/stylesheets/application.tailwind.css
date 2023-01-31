@@ -9,6 +9,10 @@
 @tailwind utilities;
 
 @layer components {
+  .background {
+    @apply text-gray-800 transition-colors duration-300 bg-gradient-to-b from-background_light to-background_dark
+  }
+
   .animate-hover {
     @apply transition-colors duration-200;
   }
@@ -18,15 +22,15 @@
   }
 
   .btn-primary {
-    @apply px-4 py-3 bg-red-600 text-white text-xs font-semibold rounded hover:bg-red-800;
+    @apply px-4 py-3 bg-primary text-white text-xs font-semibold rounded hover:bg-green-800;
   }
 
   .btn-secondary {
-    @apply px-4 py-3 bg-gray-300 text-gray-900 text-xs font-semibold rounded hover:bg-gray-400;
+    @apply px-4 py-3 bg-transparent text-secondary text-xs font-semibold rounded outline outline-offset-1 outline-2 hover:text-green-800;
   }
 
   .link {
-    @apply font-medium text-red-600 hover:underline
+    @apply font-medium text-primary hover:underline
   }
 
   .title {
@@ -44,4 +48,13 @@
   .form-element {
     @apply dark:bg-gray-800;
   }
+
+  .input {
+    @apply block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
+  }
+
+  .checkbox {
+    @apply appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer
+  }
 }
+@import 'actiontext.css';

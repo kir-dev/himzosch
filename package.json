@@ -1,5 +1,29 @@
 {
   "dependencies": {
-    "flowbite": "^1.5.3"
-  }
+    "@rails/actiontext": "^7.0.4-2",
+    "flowbite": "^1.5.3",
+    "trix": "^2.0.4"
+  },
+  "name": "himzosch",
+  "description": "This is the rails based web project of the **Pulcsi és Foltmékör** group",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kir-dev/himzosch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kir-dev/himzosch/issues"
+  },
+  "homepage": "https://github.com/kir-dev/himzosch#readme"
 }

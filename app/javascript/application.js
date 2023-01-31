@@ -7,3 +7,5 @@ import "flowbite"
 window.Alpine = Alpine
 
 Alpine.start()
+import "trix"
+import "@rails/actiontext"

@@ -21,13 +21,14 @@
     <%= form.text_area :intro, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
   </div>
 
-  <div class="my-5">
-    <%= form.label :content %>
-    <%= form.text_area :content, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
 
+    <div class="my-5">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: 'bg-white overflow-auto'%>
+    </div>
   <br>
   <div>
-    <%= form.submit class: "py-3 px-5 btn-secondary cursor-pointer" %>
+    <%= form.submit 'Mentés', class: "py-3 px-5 btn-primary cursor-pointer" %>
+    <%= link_to "Mégse", articles_path, class: "py-3 px-5 btn-secondary" %>
   </div>
 <% end %>

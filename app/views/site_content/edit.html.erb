@@ -1,0 +1,33 @@
+<% frame_id = dom_id(@site_content, "edit_turbo_frame") %>
+<%= turbo_frame_tag frame_id do %>
+  <%= form_with(model: @site_content, class: "contents") do |form| %>
+    <% if @site_content.errors.any? %>
+      <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+        <h2><%= @site_content.errors.count %> hiba miatt nem sikerült elmenteni:</h2>
+
+        <ul>
+          <% @site_content.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="my-5">
+      <%= form.label :title %>
+      <%= form.text_field :title, class: 'input form-element' %>
+    </div>
+
+
+    <div class="my-5">
+      <%= form.label :content %>
+      <%= form.rich_text_area :content, class: 'trix-editor bg-white overflow-auto'%>
+    </div>
+    <br>
+    <div>
+      <%= form.submit 'Mentés', class: "py-3 px-5 btn-primary bg-primary cursor-pointer" %>
+      <%= link_to "Mégse", root_url, class: "py-3 px-5 btn-secondary" %>
+    </div>
+  <% end %>
+
+<% end %>

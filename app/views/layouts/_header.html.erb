@@ -6,16 +6,16 @@
     </a>
     <div class="flex flex-row items-center space-x-6">
       <button class="inline-block md:hidden text-gray-900" aria-label="Menü" type="button" @click="open = !open">
-          <template x-if="!open">
-            <svg class="w-6 h-6 nav-link" xmlns="http://www.w3.org/2000/svg" alt="Menü" aria-label="Menü" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></path>
-            </svg>
-          </template>
-          <template x-if="open">
-            <svg class="w-6 h-6 nav-link" xmlns="http://www.w3.org/2000/svg" alt="Menü" aria-label="Menü" fill="none" viewbox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></path>
-            </svg>
-          </template>
+        <template x-if="!open">
+          <svg class="w-6 h-6 nav-link" xmlns="http://www.w3.org/2000/svg" alt="Menü" aria-label="Menü" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></path>
+          </svg>
+        </template>
+        <template x-if="open">
+          <svg class="w-6 h-6 nav-link" xmlns="http://www.w3.org/2000/svg" alt="Menü" aria-label="Menü" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"></path>
+          </svg>
+        </template>
       </button>
     </div>
     <div class="hidden md:block">
@@ -36,17 +36,20 @@
         <a class="nav-link" href="/images">Galéria</a>
         <% if user_signed_in? %>
           <div class="dropdown">
-            <button class="dropbtn"><%= current_user.name %></button>
+            <button class="btn btn-primary"><%= current_user.name %></button>
             <div class="dropdown-content">
               <%= link_to "Profilom", user_path(current_user), :class => "item" %>
-              <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
-              <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete  %>
+              <% if admin? %>
+                <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
+              <% end %>
+              <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete %>
             </div>
           </div>
         <% else %>
-          <%= link_to "Belépés", "/users/sign_in", :class => "self-start flex-initial text-center btn btn-primary animate-hover" %></div>
+          <%= link_to "Belépés", "/users/sign_in", :class => "btn btn-primary" %>
+          </div>
         <% end %>
-    </div>
+        </div>
   </nav>
   <template x-if="open">
     <nav class="flex flex-col px-6 mb-3 space-y-2 md:hidden" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-6" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-6">
@@ -66,15 +69,15 @@
       <a class="text-lg nav-link" href="/images">Galéria</a>
       <% if user_signed_in? %>
         <div class="dropdown">
-            <button class="dropbtn"><%= current_user.name %></button>
-            <div class="dropdown-content">
-              <%= link_to "Profilom", user_path(current_user), :class => "item" %>
-              <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
-              <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete  %>
-            </div>
+          <button class="btn btn-primary"><%= current_user.name %></button>
+          <div class="dropdown-content">
+            <%= link_to "Profilom", user_path(current_user), :class => "item" %>
+            <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
+            <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete %>
           </div>
+        </div>
       <% else %>
-        <%= link_to "Belépés", "/users/sign_in", :class => "self-start flex-initial text-center btn btn-primary animate-hover" %>
+        <%= link_to "Belépés", "/users/sign_in", :class => "btn btn-primary" %>
       <% end %>
     </nav>
   </template>

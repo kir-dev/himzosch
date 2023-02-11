@@ -1,7 +1,5 @@
 /* Dropdown Button */
 .dropbtn {
-    background-color: #dc2626;
-    color: white;
     padding: 10px;
     font-size: 12px;
     border: none;
@@ -44,4 +42,3 @@
   th, td{
     padding: 10px;
   }
-  

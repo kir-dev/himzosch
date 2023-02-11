@@ -3,19 +3,33 @@
   <head>
     <title>Pulcsi és Foltmékör</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://kit.fontawesome.com/f825e4af12.js" crossorigin="anonymous"></script>
     <%= favicon_link_tag "favicon-64.png" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "dropdown.css" %>
     <%= javascript_importmap_tags %>
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
 
-  <body class="flex flex-col min-h-screen text-gray-800 transition-colors duration-300 bg-gradient-to-b from-green-50 to-teal-100">
-    <div id="alert" class="fixed z-50 cursor-pointer"></div>
+  <body class="flex flex-col min-h-screen background">
+      <% if notice.present? %>
+        <div
+          data-controller="notification"
+          data-notification-delay-value="3000"
+          class="transition transform duration-1000 hidden"
+          data-transition-enter-from="opacity-0 translate-x-6"
+          data-transition-enter-to="opacity-100 translate-x-0"
+          data-transition-leave-from="opacity-100 translate-x-0"
+          data-transition-leave-to="opacity-0 translate-x-6"
+        >
+          <div class="bg-green-500">
+            <p class="py-2 px-3 mb-5  font-medium text-center" id="notice"><%= notice %></p>
+          </div>
+        </div>
+      <% end %>
     <%= render "layouts/header" %>
     <main class="flex-1 container mx-auto py-12 px-2">
       <%= yield %>

@@ -21,7 +21,17 @@
     <div class="hidden md:block">
       <div class="flex flex-row items-center justify-around space-x-7 lg:space-x-10">
         <%= link_to "Hírek", "/articles", :class => "nav-link" %>
-        <a class="nav-link" href="/orders">Rendelés</a>
+        <% if current_user.present? && current_user.admin %>
+          <div class="dropdown">
+            <a>Rendelés</a>
+            <div class="dropdown-content">
+              <%= link_to "Url szerkesztése", new_order_path, :class => "item" %>
+              <a class="nav-link" href="/orders">Form</a>
+            </div>
+          </div>
+        <% else %>
+          <a class="nav-link" href="/orders">Rendelés</a>
+        <% end %>
         <a class="nav-link" href="/faq">GYIK</a>
         <a class="nav-link" href="/images">Galéria</a>
         <% if user_signed_in? %>
@@ -41,7 +51,17 @@
   <template x-if="open">
     <nav class="flex flex-col px-6 mb-3 space-y-2 md:hidden" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-6" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-6">
       <%= link_to "Hírek", "/articles", :class => "text-lg nav-link" %>
-      <a class="text-lg nav-link" href="/orders">Rendelés</a>
+      <% if current_user.present? && current_user.admin %>
+          <div class="dropdown">
+            <a>Rendelés</a>
+            <div class="dropdown-content">
+              <%= link_to "Url szerkesztése", new_order_path, :class => "item" %>
+              <a class="nav-link" href="/orders">Form</a>
+            </div>
+          </div>
+        <% else %>
+          <a class="text-lg nav-link" href="/orders">Rendelés</a>
+        <% end %>
       <a class="text-lg nav-link" href="/orders">GYIK</a>
       <a class="text-lg nav-link" href="/images">Galéria</a>
       <% if user_signed_in? %>

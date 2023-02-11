@@ -1,0 +1,5 @@
+<% unless Order.all.count == 0%>
+    <iframe src="<%= @url %>" class="w-2/3 mobile:w-11/12" height="1000" frameborder="0" style="margin-left: auto;margin-right: auto;">Betöltés…</iframe>
+<% else %>
+    <p style="text-align: center;">A form jelenleg nem elérhető.</p>
+<% end %>

@@ -5,7 +5,12 @@
     <%= link_to 'Kép hozzáadása', new_picture_path, class: "btn btn-secondary" %>
   </div>
 
-  <div id="pictures" class="min-w-full">
-    <%= render @pictures %>
+
+  <div data-controller="gallery" data-action="turbo:load@window->gallery#layout">
+    <% @pictures.each do |picture| %>
+      <div class="grid-item">
+        <%= render 'picture', picture: picture %>
+      </div>
+    <% end %>
   </div>
 </div>

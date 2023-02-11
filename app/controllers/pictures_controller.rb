@@ -8,7 +8,9 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1 or /pictures/1.json
   def show
-    @explanation = SiteContent.find_or_create_by(name: "order_explain"){|c| c.title = "Szeretnél ilyet?"}
+    @explanation = SiteContent.find_or_create_by(name: "order_explain") { |c| c.title = "Szeretnél ilyet?" }
+    @enquiry = Enquiry.find_by(user: current_user, picture: @picture)
+    @enquiries = Enquiry.where(picture: @picture)
   end
 
   # GET /pictures/new
@@ -59,13 +61,14 @@ class PicturesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_picture
-      @picture = Picture.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def picture_params
-      params.require(:picture).permit(:name, :img)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_picture
+    @picture = Picture.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def picture_params
+    params.require(:picture).permit(:name, :img)
+  end
 end

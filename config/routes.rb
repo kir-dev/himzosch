@@ -14,6 +14,10 @@ Rails.application.routes.draw do
   root 'site#home'
   get '/faq', to: 'site#faq'
 
+
+  get 'enquiry/set', as: :set_enquiry
+  get 'enquiry/unset', as: :unset_enquiry
+  get 'enquiry/export', as: :export_enquiry
   # redirect to route on not found error
   # temporary solution for staging
 

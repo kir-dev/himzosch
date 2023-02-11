@@ -26,6 +26,8 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:authsch]
 
   validates :name, presence: true
+  has_many :enquiries, dependent: :destroy
+  has_many :pictures, through: :enquiries
 
   def self.from_omniauth(auth)
     data = auth.extra.raw_info

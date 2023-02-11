@@ -18,10 +18,28 @@
       </h1>
       <%= @explanation.content %>
     <% end %>
-    <div class="my-5">
-      <%= link_to 'Érdeklődés leadása', pictures_path, class: 'btn btn-secondary ' %>
-    </div>
 
+    <% if admin? %>
+      <div class="my-5">
+        <span class="text-3xl font-bold">Érdeklődők száma:  <%= @enquiries.count %></span>
+      </div>
+      <div class="mb-5">
+        <%= link_to 'Érdeklődések exportálása', export_enquiry_path(item_id: @picture, format: :csv), class: 'btn btn-primary bg-yellow-500 hover:bg-yellow-800' %>
+      </div>
+
+    <% end %>
+
+    <% if user_signed_in? %>
+      <div class="my-5">
+        <% if @enquiry.present? %>
+          <%= link_to 'Mégsem érdekel!', unset_enquiry_path(item_id: @picture.id), class: 'btn btn-danger' %>
+        <% else %>
+          <%= link_to 'Érdeklődés leadása', set_enquiry_path(item_id: @picture.id), class: 'btn btn-secondary ' %>
+        <% end %>
+
+      </div>
+
+    <% end %>
   </div>
   <div>
     <%= link_to 'Vissza a galériához', pictures_path, class: 'btn btn-secondary ' %>

@@ -36,6 +36,9 @@
   .btn-secondary {
     @apply px-4 py-3 bg-transparent text-secondary text-xs font-semibold rounded outline outline-offset-1 outline-2 hover:text-green-800;
   }
+  .btn-danger {
+    @apply px-4 py-3 bg-transparent text-red-500 text-xs font-semibold rounded outline outline-offset-1 outline-2 hover:text-red-800;
+  }
 
   .link {
     @apply font-medium text-primary hover:underline

@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     redirect_back fallback_location: root_url,  alert: 'Ehhez a művelethez nincs jogosultságod' unless user_signed_in? && current_user.admin?
   end
 
+  def require_login
+    redirect_back fallback_location: root_url,  alert: 'Ehhez a művelethez be kell jelentkezned' unless user_signed_in?
+  end
+
   def forbidden_page
     render 'application/403', status: :forbidden
   end

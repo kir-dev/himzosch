@@ -8,6 +8,7 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1 or /pictures/1.json
   def show
+    @explanation = SiteContent.find_or_create_by(name: "order_explain"){|c| c.title = "Szeretnél ilyet?"}
   end
 
   # GET /pictures/new

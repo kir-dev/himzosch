@@ -20,20 +20,20 @@
     </div>
     <div class="hidden md:block">
       <div class="flex flex-row items-center justify-around space-x-7 lg:space-x-10">
-        <%= link_to "Hírek", "/articles", :class => "nav-link" %>
+        <%= link_to "Hírek", articles_path, :class => "nav-link" %>
         <% if current_user.present? && current_user.admin %>
           <div class="dropdown">
             <a>Rendelés</a>
             <div class="dropdown-content">
               <%= link_to "Url szerkesztése", new_order_path, :class => "item" %>
-              <a class="nav-link" href="/orders">Form</a>
+              <%= link_to "Form", orders_path %>
             </div>
           </div>
         <% else %>
           <a class="nav-link" href="/orders">Rendelés</a>
         <% end %>
-        <a class="nav-link" href="/faq">GYIK</a>
-        <a class="nav-link" href="/images">Galéria</a>
+        <%= link_to 'GYIK', faq_path, class: 'nav-link' %>
+        <%= link_to 'Galéria', pictures_path, class: 'nav-link' %>
         <% if user_signed_in? %>
           <div class="dropdown">
             <button class="btn btn-primary"><%= current_user.name %></button>

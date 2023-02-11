@@ -1,0 +1,19 @@
+<div id="<%= dom_id picture %>">
+
+  <div class=" relative max-w-sm rounded shadow-lg bg-white">
+    <%= image_tag picture.img, alt: picture.name %>
+    <div class="absolute -top-2 -right-3 flex justify-start">
+      <%= link_to edit_picture_path(picture) do %>
+        <i class="fa-solid fa-pen-to-square icon-edit mr-2 shadow-lg"></i>
+      <% end %>
+
+      <%= button_to picture_path(picture), method: :delete, form: { data: { 'turbo_confirm': 'Biztos vagy benne? A törlés véglges!' } } do %>
+        <i class="fa-solid fa-trash icon-delete shadow-lg"></i>
+      <% end %>
+    </div>
+
+    <div class="px-6 py-4 text-center">
+      <div class="font-bold text-xl mb-2 text-primary"><%= picture.name %></div>
+    </div>
+  </div>
+</div>

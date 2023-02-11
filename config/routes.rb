@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pictures
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :edit, :update]
   resources :articles
@@ -15,6 +16,5 @@ Rails.application.routes.draw do
 
   # redirect to route on not found error
   # temporary solution for staging
-  # TODO: remove this after demo is done
-  match '*unmatched', to: redirect(''), via: :get
+
 end

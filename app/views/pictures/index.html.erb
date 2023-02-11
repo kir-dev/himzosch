@@ -1,0 +1,11 @@
+<div class="w-full">
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Galéria</h1>
+    <%= link_to 'Kép hozzáadása', new_picture_path, class: "btn btn-secondary" %>
+  </div>
+
+  <div id="pictures" class="min-w-full">
+    <%= render @pictures %>
+  </div>
+</div>

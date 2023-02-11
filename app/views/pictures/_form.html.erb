@@ -1,0 +1,35 @@
+<%= form_with(model: picture, class: "contents") do |form| %>
+  <% if picture.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+        <% picture.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :img %>
+    <%= form.file_field :img, class: "block shadow rounded border border-gray-200 outline-none px-3 py-2 mt-2 w-full", accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
+  <% if picture.img.attached? %>
+    <label> Jelenlegi képfájl</label>
+    <div class="my-5">
+      <%= image_tag picture.img %>
+    </div>
+
+  <% end %>
+
+  <div class="inline">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

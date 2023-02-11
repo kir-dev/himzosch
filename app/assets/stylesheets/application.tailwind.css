@@ -21,6 +21,14 @@
     @apply px-4 py-2 border-none rounded-full;
   }
 
+  .icon-edit {
+    @apply  text-3xl bg-yellow-300 p-3 rounded hover:bg-yellow-500
+  }
+
+  .icon-delete {
+    @apply text-3xl bg-red-500 p-3 rounded hover:bg-red-700
+  }
+
   .btn-primary {
     @apply px-4 py-3 bg-primary text-white text-xs font-semibold rounded hover:bg-green-800;
   }

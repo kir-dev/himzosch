@@ -5,7 +5,7 @@
     <%= @content.title %>
     <% if admin? %>
       <%= link_to edit_site_content_path(@content, back_path:faq_path) do %>
-        <i class="fa-solid fa-pen-to-square text-black"></i>
+        <i class="fa-solid fa-pen-to-square hover:text-yellow-400"></i>
       <% end %>
     <% end %>
   </h1>

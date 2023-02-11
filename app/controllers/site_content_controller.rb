@@ -8,7 +8,7 @@ class SiteContentController < ApplicationController
 
   def update
     if @site_content.update(site_content_params)
-      redirect_back fallback_location: root_url, notice: "Oldal sikeresen módosítva."
+      redirect_back fallback_location: root_url
     else
       render :edit, status: :unprocessable_entity
     end

@@ -2,7 +2,7 @@
   "dependencies": {
     "@rails/actiontext": "^7.0.4-2",
     "flowbite": "^1.5.3",
-    "trix": "^2.0.4"
+    "trix": "^1.3.1"
   },
   "name": "himzosch",
   "description": "This is the rails based web project of the **Pulcsi és Foltmékör** group",

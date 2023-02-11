@@ -3,8 +3,10 @@
     <%= render @user %>
 
     <br>
-    <div class="w-full flex justify-center">
-      <%= link_to 'Szerkesztés', edit_user_path(@user), class: "mt-2 bg-gray-200 px-5 text-xs rounded-lg py-3 inline-block font-medium" %>
-    </div>
+    <% if admin? %>
+      <div class="w-full flex justify-center">
+        <%= link_to 'Szerkesztés', edit_user_path(@user), class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>

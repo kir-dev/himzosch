@@ -17,10 +17,10 @@
             <% if admin? %>
               <div class="flex justify-end">
                 <%= link_to edit_article_path(article) do %>
-                  <i class="fa-solid fa-pen-to-square m-5"></i>
+                  <i class="fa-solid fa-pen-to-square icon-edit"></i>
                 <% end %>
                 <%= button_to article_path(article), method: :delete, form: { data: { 'turbo_confirm': 'ABiztos vagy benne? A törlés véglges!' } } do %>
-                  <i class="fa-solid fa-trash text-red-400 m-5"></i>
+                  <i class="fa-solid fa-trash  icon-delete ml-5"></i>
                 <% end %>
               </div>
             <% end %>

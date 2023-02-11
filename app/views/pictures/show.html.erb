@@ -1,6 +1,6 @@
 <% frame_id = dom_id(@explanation, "edit_turbo_frame") %>
 
-<div class="grid grid-cols-2 gap-10 w-full ">
+<div class="grid grid-cols-1 gap-10 w-full md:grid-cols-2 ">
   <div>
 
     <%= image_tag @picture.img, alt: @picture.name %>
@@ -12,7 +12,7 @@
         <%= @explanation.title %>
         <% if admin? %>
           <%= link_to edit_site_content_path(@explanation, back_path: picture_path(@picture)) do %>
-            <i class="fa-solid fa-pen-to-square text-black ml-3"></i>
+            <i class="fa-solid fa-pen-to-square text-black ml-3 hover:text-yellow-400"></i>
           <% end %>
         <% end %>
       </h1>
@@ -34,7 +34,7 @@
         <% if @enquiry.present? %>
           <%= link_to 'Mégsem érdekel!', unset_enquiry_path(item_id: @picture.id), class: 'btn btn-danger' %>
         <% else %>
-          <%= link_to 'Érdeklődés leadása', set_enquiry_path(item_id: @picture.id), class: 'btn btn-secondary ' %>
+          <%= link_to 'Érdeklődés leadása', set_enquiry_path(item_id: @picture.id), class: 'btn btn-primary ' %>
         <% end %>
 
       </div>
@@ -42,6 +42,6 @@
     <% end %>
   </div>
   <div>
-    <%= link_to 'Vissza a galériához', pictures_path, class: 'btn btn-secondary ' %>
+    <%= link_to 'Vissza a galériához', pictures_path, class: 'btn btn-secondary ', data: { turbo: false } %>
   </div>
 </div>

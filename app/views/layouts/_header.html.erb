@@ -30,10 +30,10 @@
             </div>
           </div>
         <% else %>
-          <a class="nav-link" href="/orders">Rendelés</a>
+          <%= link_to 'Rendelés', orders_path, class: 'nav-link', data: { turbo: false } %>
         <% end %>
         <%= link_to 'GYIK', faq_path, class: 'nav-link' %>
-        <%= link_to 'Galéria', pictures_path, class: 'nav-link', data: {turbo: false}%>
+        <%= link_to 'Galéria', pictures_path, class: 'nav-link', data: { turbo: false } %>
         <% if user_signed_in? %>
           <div class="dropdown">
             <button class="btn btn-primary"><%= current_user.name %></button>
@@ -46,38 +46,29 @@
             </div>
           </div>
         <% else %>
-          <%= link_to "Belépés", "/users/sign_in", :class => "btn btn-primary" %>
+          <%= link_to "Belépés", user_session_path, :class => "btn btn-primary" %>
           </div>
         <% end %>
         </div>
   </nav>
   <template x-if="open">
     <nav class="flex flex-col px-6 mb-3 space-y-2 md:hidden" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 transform -translate-y-6" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:leave="transition ease-in duration-100" x-transition:leave-start="opacity-100 transform translate-y-0" x-transition:leave-end="opacity-0 transform -translate-y-6">
-      <%= link_to "Hírek", "/articles", :class => "text-lg nav-link" %>
-      <% if current_user.present? && current_user.admin %>
-          <div class="dropdown">
-            <a>Rendelés</a>
-            <div class="dropdown-content">
-              <%= link_to "Url szerkesztése", new_order_path, :class => "item" %>
-              <a class="nav-link" href="/orders">Form</a>
-            </div>
-          </div>
-        <% else %>
-          <a class="text-lg nav-link" href="/orders">Rendelés</a>
-        <% end %>
-      <a class="text-lg nav-link" href="/orders">GYIK</a>
-      <a class="text-lg nav-link" href="/images">Galéria</a>
+      <%= link_to "Hírek", articles_path, :class => "text-lg nav-link" %>
+      <%= link_to 'Rendelés', orders_path, class: 'text-lg nav-link' %>
+      <%= link_to 'GYIK', faq_path, class: 'text-lg nav-link' %>
+      <%= link_to 'Galéria', pictures_path, class: 'text-lg nav-link', data: { turbo: false } %>
       <% if user_signed_in? %>
-        <div class="dropdown">
-          <button class="btn btn-primary"><%= current_user.name %></button>
-          <div class="dropdown-content">
-            <%= link_to "Profilom", user_path(current_user), :class => "item" %>
-            <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
-            <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete %>
-          </div>
-        </div>
+        <%= link_to "Profilom", user_path(current_user), class: "text-lg nav-link" %>
+      <% end %>
+      <% if user_signed_in? && admin? %>
+        <div class="text-grey text-center">Admin funkciók</div>
+        <%= link_to 'Rendelés url szerkesztése', new_order_path, class: 'text-lg nav-link' %>
+        <%= link_to "Felhasználók", users_path, class: 'text-lg nav-link' if admin? %>
+      <% end %>
+      <% if user_signed_in? %>
+        <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete, class: 'btn btn-primary text-center bg-red-500' %>
       <% else %>
-        <%= link_to "Belépés", "/users/sign_in", :class => "btn btn-primary" %>
+        <%= link_to "Belépés", user_session_path, :class => "btn btn-primary text-center" %>
       <% end %>
     </nav>
   </template>

@@ -103,9 +103,9 @@
   <h1 class="mb-8 text-center text-3xl font-bold">Szolgáltatásaink</h1>
 
   <ul class="grid place-content-center sm:grid-cols-2 gap-8 mx-auto">
-    <% @services.each do |service| %>
+    <% @services.each_with_index  do |service, i| %>
       <li class="flex justify-center">
-        <div class="pl-6 pr-4 text-5xl font-extralight text-primary">01.</div>
+        <div class="pl-6 pr-4 text-5xl font-extralight text-primary">0<%= (i+1).to_s%>.</div>
         <div>
           <% frame_id = dom_id(service, "edit_turbo_frame") %>
           <%= turbo_frame_tag frame_id do %>

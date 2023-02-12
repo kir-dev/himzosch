@@ -26,9 +26,6 @@ hu:
       picture:
         name: "Megnevezés"
         img: "Képfájl"
-  devise:
-    omniauth_callbacks:
-      success: "Sikeres bejelentkezés"
   date:
     abbr_day_names:
     - v.

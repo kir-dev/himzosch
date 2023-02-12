@@ -1,0 +1,61 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+hu:
+  devise:
+    confirmations:
+      confirmed: "Az email címedet sikeresen igazoltad."
+      send_instructions: "Nemsokára kapsz egy emailt a további teendőkről"
+      send_paranoid_instructions: "Ha az email címed szerepel a rendszerünkben, kapsz küldünk egy értesítést a további teendőkről!"
+    failure:
+      already_authenticated: "Már be vagy jelentkezve"
+      inactive: "A felhasználód még nincs aktiválva"
+      invalid: "Érvénytelen %{authentication_keys} vagy jelszó."
+      locked: "A felhasználói fiókod zárolva van!"
+      last_attempt: "Egy lehetőséged van még a fiókod zárolása előtt"
+      not_found_in_database: "Érvénytelen %{authentication_keys} or vagy jelszó."
+      timeout: "Kérlek jelentkezz be újra"
+      unauthenticated: "Be kell jelentkezned a folytatás előtt"
+      unconfirmed: "A folytatáshoz igazolnod kell az email címed"
+    mailer:
+      confirmation_instructions:
+        subject: "Email cím igazolása"
+      reset_password_instructions:
+        subject: "Jelszó visszaállítás"
+      unlock_instructions:
+        subject: "Zárolt fiók feloldása"
+      email_changed:
+        subject: "Email cím megváltozása"
+      password_change:
+        subject: "Jelszó megváltozása"
+    omniauth_callbacks:
+      failure: "Hiba történt a bejelentkezésnél (\"%{reason}\")"
+      success: "Sikeres bejelentkezés"
+    passwords:
+      no_token: "Ez az oldal csak a jelszó visszaállítás emailben található linkkel érhető el."
+      send_instructions: "Nemsokára küldünk egy emailt a további részletekkel"
+      send_paranoid_instructions: "Nemsokára küldünk egy emailt a további részletekkel"
+      updated: "A jelszavad sikeresen megváltoztattad"
+      updated_not_active: "A jelszavad sikeresen megváltoztattad"
+    registrations:
+      destroyed: "A fiók sikeresen törölve lett!"
+      signed_up: "Regisztráció sikeres!"
+      signed_up_but_inactive: "Regisztráció sikeres! Kérlek aktiváld a fiókodat"
+      signed_up_but_locked: "Regisztráció sikeres, de a fiókod zárolva van!"
+      signed_up_but_unconfirmed: "Az igazoló emailt elküldtük. Kérlek kövesd a benne található utasításokat"
+      update_needs_confirmation: "A fiókot frissítettük, de az email címedet meg kell erősítened."
+      updated: "A fiókot frissítettük!"
+      updated_but_not_signed_in: "A fiókot frissítettük, kérlek lépj be a fiókodba!"
+    sessions:
+      signed_in: "Sikeres bejelentkezés!"
+      signed_out: "Sikeres kijelentkezés!"
+      already_signed_out: "Sikeres kijelentkezés!"
+  errors:
+    messages:
+      already_confirmed: "már meg lett erősítve. Próbálj meg belépni."
+      confirmation_period_expired: "lejárt %{period}, Kérlek igényelj egy másikat"
+      expired: "lejárt, kérlek igényelj egy másikat"
+      not_found: "nem található"
+      not_locked: "zárolva van"
+      not_saved:
+        one: "Egy hiba megakadályozta a %{resource} mentését: "
+        other: "%{count} megakadályozta a %{resource} mentését:"

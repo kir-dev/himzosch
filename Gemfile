@@ -33,12 +33,16 @@ gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
+# Flexible authentication solution for Rails with Warden (https://github.com/heartcombo/devise)
 gem 'devise'
 
+# A common interface to multiple JSON libraries. (https://github.com/intridea/multi_json)
 gem 'multi_json'
 
+# Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
 gem 'omniauth-rails_csrf_protection'
 
+# An Auth.sch strategy for OmniAuth 1.x (https://github.com/kiskoza/omniauth-authsch)
 gem 'omniauth-authsch'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -66,6 +70,9 @@ group :development, :test do
   # Process manager for applications with multiple components (http://github.com/ddollar/foreman)
   gem 'foreman'
 
+  # Gives letter_opener an interface for browsing sent emails (https://github.com/fgrehm/letter_opener_web)
+  gem 'letter_opener_web', '~> 2.0'
+
   # Automatic Ruby code style checking tool. (https://github.com/rubocop/rubocop)
   gem 'rubocop', require: false
 
@@ -90,6 +97,7 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 
+  # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug'
 end
 

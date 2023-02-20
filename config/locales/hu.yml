@@ -8,6 +8,7 @@ hu:
       article: "Cikk"
       user: "Felhasználó"
       site_content: "Tartalom"
+      picture: "Kép"
     attributes:
       article:
         title: "Cím"
@@ -22,9 +23,9 @@ hu:
       site_content:
         title: "Cím"
         content: "Tartalom"
-  devise:
-    omniauth_callbacks:
-      success: "Sikeres bejelentkezés"
+      picture:
+        name: "Megnevezés"
+        img: "Képfájl"
   date:
     abbr_day_names:
     - v.

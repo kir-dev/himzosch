@@ -1,0 +1,18 @@
+<div class="w-full">
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl mb-5">Galéria</h1>
+    <% if admin? %>
+      <%= link_to 'Kép hozzáadása', new_picture_path, class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+
+
+  <div data-controller="gallery" data-action="turbo:load@window->gallery#layout">
+    <% @pictures.each do |picture| %>
+      <div class="grid-item">
+        <%= render 'picture', picture: picture %>
+      </div>
+    <% end %>
+  </div>
+</div>

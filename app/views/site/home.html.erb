@@ -16,9 +16,7 @@
           <a class="px-4 btn btn-primary" href="#services">
             Szolgáltatásaink
           </a>
-          <a class="ml-4 btn btn-secondary" href="/images">
-            Képek munkáinkról
-          </a>
+          <%= link_to 'Képel munkáinkról', pictures_path, class: 'ml-4 btn btn-secondary', data: { turbo: false } %>
         </div>
       </div>
     </div>
@@ -58,7 +56,7 @@
     </ol>
 
     <div class="mt-10 flex items-center justify-center gap-4">
-      <a href="/news" class="btn btn-primary">További híreink</a>
+      <%= link_to 'További híreink', articles_path, class: 'btn btn-primary', data: { turbo: false } %>
     </div>
   </div>
 <% end %>
@@ -105,9 +103,9 @@
   <h1 class="mb-8 text-center text-3xl font-bold">Szolgáltatásaink</h1>
 
   <ul class="grid place-content-center sm:grid-cols-2 gap-8 mx-auto">
-    <% @services.each do |service| %>
+    <% @services.each_with_index  do |service, i| %>
       <li class="flex justify-center">
-        <div class="pl-6 pr-4 text-5xl font-extralight text-primary">01.</div>
+        <div class="pl-6 pr-4 text-5xl font-extralight text-primary">0<%= (i+1).to_s%>.</div>
         <div>
           <% frame_id = dom_id(service, "edit_turbo_frame") %>
           <%= turbo_frame_tag frame_id do %>
@@ -115,7 +113,7 @@
               <%= service.title %>
               <% if admin? %>
                 <%= link_to edit_site_content_path(service) do %>
-                  <i class="fa-solid fa-pen-to-square text-black"></i>
+                  <i class="fa-solid fa-pen-to-square text-black hover:text-yellow-400"></i>
                 <% end %>
               <% end %>
             </div>
@@ -142,8 +140,8 @@
     </div>
 
     <div class="mt-6 flex items-center justify-center gap-4">
-      <a href="/orders" class="btn btn-primary">Rendelnék!</a>
-      <a href="/faq" class="btn btn-secondary ">További tudnivalók</a>
+      <%= link_to 'Rendelnék!', orders_path, class: 'btn btn-primary'%>
+      <%= link_to 'További tudnivalók', faq_path, class: 'btn btn-secondary' %>
     </div>
   </div>
 </div>

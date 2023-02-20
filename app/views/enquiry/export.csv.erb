@@ -1,0 +1,5 @@
+<%- headers = ['Item','Email', 'Date'] -%>
+<%= CSV.generate_line headers %>
+<%- @enquires.each do |enq| -%>
+  <%= CSV.generate_line([enq.picture.name, enq.user.email, enq.created_at]) -%>
+<%- end -%>

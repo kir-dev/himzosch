@@ -18,7 +18,15 @@
   }
 
   .btn {
-    @apply px-4 py-2 border-none rounded-full;
+    @apply px-4 py-2 border-none rounded-full cursor-pointer;
+  }
+
+  .icon-edit {
+    @apply  text-xl bg-yellow-300 p-2 rounded hover:bg-yellow-500
+  }
+
+  .icon-delete {
+    @apply text-xl bg-red-500 p-2 rounded hover:bg-red-700
   }
 
   .btn-primary {
@@ -27,6 +35,9 @@
 
   .btn-secondary {
     @apply px-4 py-3 bg-transparent text-secondary text-xs font-semibold rounded outline outline-offset-1 outline-2 hover:text-green-800;
+  }
+  .btn-danger {
+    @apply px-4 py-3 bg-transparent text-red-500 text-xs font-semibold rounded outline outline-offset-1 outline-2 hover:text-red-800;
   }
 
   .link {

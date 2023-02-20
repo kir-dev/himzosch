@@ -9,4 +9,7 @@ class SiteController < ApplicationController
   def faq
     @content = SiteContent.find_or_create_by(name: "faq"){|c| c.title = "Gyakran ismételt kérdések"}
   end
+
+  def join
+  end
 end

@@ -33,6 +33,7 @@
           <%= link_to 'Rendelés', orders_path, class: 'nav-link', data: { turbo: false } %>
         <% end %>
         <%= link_to 'GYIK', faq_path, class: 'nav-link' %>
+        <%= link_to 'Jelentkezés a körbe', join_path, class: 'nav-link' %>
         <%= link_to 'Galéria', pictures_path, class: 'nav-link', data: { turbo: false } %>
         <% if user_signed_in? %>
           <div class="dropdown">
@@ -56,6 +57,7 @@
       <%= link_to "Hírek", articles_path, :class => "text-lg nav-link" %>
       <%= link_to 'Rendelés', orders_path, class: 'text-lg nav-link' %>
       <%= link_to 'GYIK', faq_path, class: 'text-lg nav-link' %>
+      <%= link_to 'Jelentkezés a körbe', join_path, class: 'text-lg nav-link' %>
       <%= link_to 'Galéria', pictures_path, class: 'text-lg nav-link', data: { turbo: false } %>
       <% if user_signed_in? %>
         <%= link_to "Profilom", user_path(current_user), class: "text-lg nav-link" %>

@@ -1,0 +1,5 @@
+<% if ENV["HIMZOSCH_JOIN_URL"].present? %>
+  <iframe src="<%= ENV["HIMZOSCH_JOIN_URL"] %>" class="w-2/3 mobile:w-11/12" height="1000" frameborder="0" style="margin-left: auto;margin-right: auto;">Betöltés…</iframe>
+<% else %>
+  <p class="text-center text-3xl">Jelenleg nincs lehetőség a jelentkezésre</p>
+<% end %>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'site#home'
   get '/faq', to: 'site#faq'
+  get '/join-us', to: 'site#join', as: :join
 
 
   get 'enquiry/set', as: :set_enquiry

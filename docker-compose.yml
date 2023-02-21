@@ -22,10 +22,16 @@ services:
       - db
     networks:
       - himzosch_network
+    volumes:
+      - image_folder:/himzosch/storage/
 volumes:
   himzosch_db:
     external:
       name: "${DB_VOLUME_NAME}"
+  image_folder:
+    external:
+      name: "${IMAGE_VOLUME_NAME}"
+
 
 networks:
   himzosch_network:

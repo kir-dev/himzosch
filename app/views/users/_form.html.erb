@@ -16,11 +16,15 @@
   </div>
     <%= form.text_field :name, class: "input" %>
 
-  <% if current_user.admin? %>
+  <% if policy(User).edit? %>
   <br>
-  <div class="my-5 flex w-full justify-center">
-    <p>Admin: </p>
-    <%= form.check_box :admin, class: "block mt-1 ml-3 h-5 w-5"%>
+  <div class="my-5 flex flex-col w-full justify-center gap-4">
+    <p class="text-center">Jogosultsági kör: </p>
+    <% def translate(role) %>
+    <%  I18n.t :"user_role.#{role}" %>
+    <% end %>
+    <% roles_array = User.roles.map { |role| [translate(role[0]), role[0]] } %>
+    <%= form.select(:role, roles_array) %>
   </div>
   <% end %>
 

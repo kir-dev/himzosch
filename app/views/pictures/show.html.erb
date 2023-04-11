@@ -10,7 +10,7 @@
     <%= turbo_frame_tag frame_id do %>
       <h1 class="text-3xl text-primary text-center font-bold mb-5">
         <%= @explanation.title %>
-        <% if admin? %>
+        <% if policy(@explanation).edit? %>
           <%= link_to edit_site_content_path(@explanation, back_path: picture_path(@picture)) do %>
             <i class="fa-solid fa-pen-to-square text-black ml-3 hover:text-yellow-400"></i>
           <% end %>
@@ -19,7 +19,7 @@
       <%= @explanation.content %>
     <% end %>
 
-    <% if admin? %>
+    <% if policy(Enquiry).export? %>
       <div class="my-5">
         <span class="text-3xl font-bold">Érdeklődők száma:  <%= @enquiries.count %></span>
       </div>

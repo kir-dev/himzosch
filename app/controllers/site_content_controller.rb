@@ -1,12 +1,13 @@
 class SiteContentController < ApplicationController
   before_action :set_content
-  before_action :require_admin
 
   def edit
+    authorize @site_content
     @back_path = params[:back_path] || root_url
   end
 
   def update
+    authorize @site_content
     if @site_content.update(site_content_params)
       redirect_back fallback_location: root_url
     else

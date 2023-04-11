@@ -107,7 +107,7 @@
           <%= turbo_frame_tag frame_id do %>
             <div class="text-xl font-bold text-primary block" style="width: 10rem">
               <%= service.title %>
-              <% if admin? %>
+              <% if policy(service).edit? %>
                 <%= link_to edit_site_content_path(service) do %>
                   <i class="fa-solid fa-pen-to-square text-black hover:text-yellow-400"></i>
                 <% end %>

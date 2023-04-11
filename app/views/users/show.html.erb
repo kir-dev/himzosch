@@ -3,7 +3,7 @@
     <%= render @user %>
 
     <br>
-    <% if admin? %>
+    <% if policy(@user).edit? %>
       <div class="w-full flex justify-center">
         <%= link_to 'Szerkesztés', edit_user_path(@user), class: "btn btn-primary" %>
       </div>

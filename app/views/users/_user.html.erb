@@ -12,11 +12,7 @@
   </p>
 
   <p class="my-5">
-    <strong class="block font-medium mb-1 inline">Admin:</strong>
-    <% if user.admin? %>
-      <i class="fa-solid fa-check text-green-800"></i>
-    <% else %>
-      <i class="fa-solid fa-xmark text-red-600"></i>
-    <% end %>
+    <strong class="block font-medium mb-1 inline">Jogosultsági kör:</strong>
+    <%= I18n.t :"user_role.#{user.role}" %>
   </p>
 </div>

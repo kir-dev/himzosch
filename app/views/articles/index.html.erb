@@ -1,4 +1,4 @@
-<% if admin? %>
+<% if policy(Article).new? %>
   <div class="flex justify-end">
     <%= link_to 'Új cikk', new_article_path, class: "m-20 btn-primary" %>
   </div>
@@ -14,7 +14,7 @@
       <% @articles.each do |article| %>
         <li class="relative flex-1 mb-6 sm:mb-0">
           <div class="mt-3 sm:pr-8">
-            <% if admin? %>
+            <% if policy(article).edit? %>
               <div class="flex justify-end">
                 <%= link_to edit_article_path(article) do %>
                   <i class="fa-solid fa-pen-to-square icon-edit"></i>

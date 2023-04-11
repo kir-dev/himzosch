@@ -2,7 +2,7 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl mb-5">Galéria</h1>
-    <% if admin? %>
+    <% if policy(Picture).new? %>
       <%= link_to 'Kép hozzáadása', new_picture_path, class: "btn btn-secondary" %>
     <% end %>
   </div>

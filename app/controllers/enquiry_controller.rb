@@ -1,7 +1,6 @@
 require 'csv'
 class EnquiryController < ApplicationController
   before_action :require_login
-  before_action :require_admin, only: [:export]
 
   def set
     @item = Picture.find params[:item_id]
@@ -31,6 +30,7 @@ class EnquiryController < ApplicationController
   end
 
   def export
+    authorize Enquiry
     @item = Picture.find params[:item_id]
     @enquires = Enquiry.includes(:picture, :user).where(picture: @item)
 

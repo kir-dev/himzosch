@@ -21,7 +21,7 @@
     <div class="hidden md:block">
       <div class="flex flex-row items-center justify-around space-x-7 lg:space-x-10">
         <%= link_to "Hírek", articles_path, :class => "nav-link" %>
-        <% if current_user.present? && current_user.admin %>
+        <% if current_user.present? && policy(Order).new? %>
           <div class="dropdown">
             <a>Rendelés</a>
             <div class="dropdown-content">
@@ -40,9 +40,7 @@
             <button class="btn btn-primary"><%= current_user.name %></button>
             <div class="dropdown-content">
               <%= link_to "Profilom", user_path(current_user), :class => "item" %>
-              <% if admin? %>
-                <%= link_to "Felhasználók", users_path, :class => "item" if admin? %>
-              <% end %>
+              <%= link_to "Felhasználók", users_path, :class => "item" if policy(User).index? %>
               <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete %>
             </div>
           </div>
@@ -65,7 +63,7 @@
       <% if user_signed_in? && admin? %>
         <div class="text-grey text-center">Admin funkciók</div>
         <%= link_to 'Rendelés url szerkesztése', new_order_path, class: 'text-lg nav-link' %>
-        <%= link_to "Felhasználók", users_path, class: 'text-lg nav-link' if admin? %>
+        <%= link_to "Felhasználók", users_path, class: 'text-lg nav-link' %>
       <% end %>
       <% if user_signed_in? %>
         <%= button_to "Kijelentkezés", destroy_user_session_path, method: :delete, class: 'btn btn-primary text-center bg-red-500' %>

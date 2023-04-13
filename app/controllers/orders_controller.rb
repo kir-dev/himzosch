@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-    before_action :require_admin, only: %i[ new create ]
 
     def index
         unless Order.all.count == 0
@@ -9,10 +8,12 @@ class OrdersController < ApplicationController
     end
 
     def new
+        authorize Order
         @order = Order.new
     end
 
     def create
+        authorize Order
         Order.delete_all
         @order = Order.new(order_params)
 

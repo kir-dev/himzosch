@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ApplicationHelper
+  include Pundit::Authorization
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def require_admin
@@ -25,6 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :can_update_user?
+
+  rescue_from Pundit::NotAuthorizedError do |exception|
+    redirect_back fallback_location: root_url,  alert: 'Ehhez a művelethez nincs jogosultságod'
+  end
 
   protected
 

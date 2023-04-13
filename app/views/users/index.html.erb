@@ -5,7 +5,7 @@
     <tr>
       <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Név</th>
       <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Email</th>
-      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Admin</th>
+      <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left">Jogosultsági kör</th>
       <th class="text-sm font-medium text-gray-900 px-6 py-4 text-left" colspan="2">Műveletek</th>
     </tr>
   </thead>
@@ -15,14 +15,8 @@
       <tr border-b>
         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= user.name %></td>
         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= user.email %></td>
-        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-          <% if user.admin? %>
-            <i class="fa-solid fa-check text-green-800"></i>
-          <% else %>
-            <i class="fa-solid fa-xmark text-red-600"></i>
-          <% end %>
-        </td>
-        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"><%= link_to 'Szerkesztés', edit_user_path(user), class: 'link' %></td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= I18n.t :"user_role.#{user.role}" %></td>
+        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap"> <%= link_to 'Szerkesztés', edit_user_path(user), class: 'link' %></td>
       </tr>
     <% end %>
   </tbody>

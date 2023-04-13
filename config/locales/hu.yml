@@ -20,12 +20,18 @@ hu:
         password: "Jelszó"
         password_confirmation: "Jelszó újra"
         remember_me: "Emlékezz rám"
+        role: "Jogosultsági kör"
       site_content:
         title: "Cím"
         content: "Tartalom"
       picture:
         name: "Megnevezés"
         img: "Képfájl"
+  user_role:
+    ordinary: "Felhasználó"
+    member: "Tag"
+    editor: "Szerkesztő"
+    admin: "Adminisztrátor"
   date:
     abbr_day_names:
     - v.

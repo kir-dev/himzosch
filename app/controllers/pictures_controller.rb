@@ -1,6 +1,5 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: %i[ show edit update destroy ]
-  before_action :require_admin, except: %i[index show]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
@@ -16,15 +15,18 @@ class PicturesController < ApplicationController
   # GET /pictures/new
   def new
     @picture = Picture.new
+    authorize @picture
   end
 
   # GET /pictures/1/edit
   def edit
+    authorize @picture
   end
 
   # POST /pictures or /pictures.json
   def create
     @picture = Picture.new(picture_params)
+    authorize @picture
 
     respond_to do |format|
       if @picture.save
@@ -39,6 +41,7 @@ class PicturesController < ApplicationController
 
   # PATCH/PUT /pictures/1 or /pictures/1.json
   def update
+    authorize @picture
     respond_to do |format|
       if @picture.update(picture_params)
         format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
@@ -52,6 +55,7 @@ class PicturesController < ApplicationController
 
   # DELETE /pictures/1 or /pictures/1.json
   def destroy
+    authorize @picture
     @picture.destroy
 
     respond_to do |format|

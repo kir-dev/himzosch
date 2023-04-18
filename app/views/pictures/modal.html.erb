@@ -1,0 +1,22 @@
+<%= turbo_frame_tag "modal-image" do %>
+  <div class="modal flex  justify-center  overflow-hidden">
+
+    <!-- Modal content -->
+    <div class="bg-white w-4/5 mt-3">
+      <div class="mx-3 my-3">
+        <span class=" font-bold text-xl mb-2 text-primary"> <%= @picture.name%> </span>
+
+        <span class="text-gray-500 font-bold">
+        by <%= @picture.author %>
+      </span>
+        <%= link_to pictures_path do %>
+          <span class="float-right text-4xl text-gray-500 font-bold">&times;</span>
+        <% end %>
+
+      </div>
+      <%= image_tag @picture.img, alt: @picture.name, class: "object-cover w-full"%>
+    </div>
+
+  </div>
+
+<% end %>

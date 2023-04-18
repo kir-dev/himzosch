@@ -17,6 +17,16 @@
   </div>
 
   <div class="my-5">
+    <%= form.label :author %>
+    <%= form.text_field :author, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :description %>
+    <%= form.text_area :description, maxlength:200, size:'3*75', class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label :img %>
     <%= form.file_field :img, class: "block shadow rounded border border-gray-200 outline-none px-3 py-2 mt-2 w-full", accept: 'image/png,image/gif,image/jpeg' %>
   </div>

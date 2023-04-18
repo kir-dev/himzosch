@@ -1,8 +1,8 @@
 <div id="<%= dom_id picture %>">
 
   <div class="relative max-w-sm rounded shadow-lg bg-white m-2 hover:shadow-xl">
-    <%= link_to picture_path(picture) do %>
-      <%= image_tag picture.img, alt: picture.name, class: 'brightness-90 hover:brightness-100' %>
+    <%= link_to modal_picture_path(picture), data:{turbo_frame: "modal-image"} do %>
+      <%= image_tag picture.img, alt: picture.name, class: 'brightness-90 hover:brightness-100 rounded-lg' %>
     <% end %>
     <% if policy(picture).edit? %>
       <div class="absolute -top-1 -right-1 flex justify-start">
@@ -15,9 +15,18 @@
         <% end %>
       </div>
     <% end %>
-    <div class="px-6 py-4 text-center">
-      <%= link_to picture.name, picture_path(picture), class:'font-bold text-xl mb-2 text-primary' %>
+    <div class="px-6 py-4 ">
+      <span class=" font-bold text-xl mb-2 text-primary"> <%= picture.name%> </span>
 
+      <span class="text-gray-500 font-bold">
+        by <%= picture.author %>
+      </span>
+
+      <div class="text-gray-800 italic">
+        <%= picture.description %>
+      </div>
     </div>
   </div>
+
+
 </div>

@@ -19,6 +19,6 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Enquiry < ApplicationRecord
-  belongs_to :user
-  belongs_to :picture
+  #belongs_to :user
+  #belongs_to :picture
 end

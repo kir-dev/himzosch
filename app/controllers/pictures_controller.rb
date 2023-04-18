@@ -1,5 +1,5 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[ show edit update destroy ]
+  before_action :set_picture, only: %i[ show modal edit update destroy ]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
@@ -7,9 +7,11 @@ class PicturesController < ApplicationController
 
   # GET /pictures/1 or /pictures/1.json
   def show
-    @explanation = SiteContent.find_or_create_by(name: "order_explain") { |c| c.title = "Szeretnél ilyet?" }
-    @enquiry = Enquiry.find_by(user: current_user, picture: @picture)
-    @enquiries = Enquiry.where(picture: @picture)
+    turbo_stream
+  end
+
+  def modal
+
   end
 
   # GET /pictures/new
@@ -73,6 +75,6 @@ class PicturesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def picture_params
-    params.require(:picture).permit(:name, :img)
+    params.require(:picture).permit(:name, :author, :description, :img)
   end
 end

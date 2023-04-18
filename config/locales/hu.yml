@@ -25,7 +25,9 @@ hu:
         title: "Cím"
         content: "Tartalom"
       picture:
-        name: "Megnevezés"
+        name: "Cím"
+        author: "Készítő"
+        description: "Leírás"
         img: "Képfájl"
   user_role:
     ordinary: "Felhasználó"

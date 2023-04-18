@@ -1,18 +1,14 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[ show modal edit update destroy ]
+  before_action :set_picture, only: %i[show modal edit update destroy]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
   end
 
   # GET /pictures/1 or /pictures/1.json
-  def show
-    turbo_stream
-  end
+  def show; end
 
-  def modal
-
-  end
+  def modal; end
 
   # GET /pictures/new
   def new
@@ -32,7 +28,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+        format.html { redirect_to picture_url(@picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +42,7 @@ class PicturesController < ApplicationController
     authorize @picture
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
+        format.html { redirect_to picture_url(@picture), notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -61,7 +57,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
+      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

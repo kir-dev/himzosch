@@ -1,10 +1,10 @@
 <%= turbo_frame_tag "modal-image" do %>
-  <div class="modal flex  justify-center  overflow-hidden">
+  <div class="fixed w-full h-full top-0 left-0 flex items-start justify-center overflow-hidden bg-black bg-opacity-75">
 
     <!-- Modal content -->
-    <div class="bg-white w-4/5 mt-3">
+    <div class="bg-white w-3/5 mt-2 rounded-lg">
       <div class="mx-3 my-3">
-        <span class=" font-bold text-xl mb-2 text-primary"> <%= @picture.name%> </span>
+        <span class=" font-bold text-xl mb-2 text-primary"> <%= @picture.name %> </span>
 
         <span class="text-gray-500 font-bold">
         by <%= @picture.author %>
@@ -14,7 +14,9 @@
         <% end %>
 
       </div>
-      <%= image_tag @picture.img, alt: @picture.name, class: "object-cover w-full"%>
+        <%= image_tag @picture.img, alt: @picture.name, class: "w-full object-cover rounded-b-lg" %>
+
+
     </div>
 
   </div>

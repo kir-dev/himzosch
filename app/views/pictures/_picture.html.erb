@@ -2,7 +2,7 @@
 
   <div class="relative max-w-sm rounded shadow-lg bg-white m-2 hover:shadow-xl">
     <%= link_to modal_picture_path(picture), data:{turbo_frame: "modal-image"} do %>
-      <%= image_tag picture.img, alt: picture.name, class: 'brightness-90 hover:brightness-100 rounded-lg' %>
+      <%= image_tag picture.img, alt: picture.name, class: 'brightness-90 hover:brightness-100 rounded-t-lg' %>
     <% end %>
     <% if policy(picture).edit? %>
       <div class="absolute -top-1 -right-1 flex justify-start">

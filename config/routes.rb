@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
-  resources :pictures
+  resources :pictures do
+    member do
+      get 'modal'
+    end
+  end
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :edit, :update]
   resources :articles
@@ -19,9 +23,9 @@ Rails.application.routes.draw do
   get '/join-us', to: 'site#join', as: :join
 
 
-  get 'enquiry/set', as: :set_enquiry
-  get 'enquiry/unset', as: :unset_enquiry
-  get 'enquiry/export', as: :export_enquiry
+  #get 'enquiry/set', as: :set_enquiry
+  #get 'enquiry/unset', as: :unset_enquiry
+  #get 'enquiry/export', as: :export_enquiry
   # redirect to route on not found error
   # temporary solution for staging
 

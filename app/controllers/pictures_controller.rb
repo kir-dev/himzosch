@@ -1,16 +1,14 @@
 class PicturesController < ApplicationController
-  before_action :set_picture, only: %i[ show edit update destroy ]
+  before_action :set_picture, only: %i[show modal edit update destroy]
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
   end
 
   # GET /pictures/1 or /pictures/1.json
-  def show
-    @explanation = SiteContent.find_or_create_by(name: "order_explain") { |c| c.title = "Szeretnél ilyet?" }
-    @enquiry = Enquiry.find_by(user: current_user, picture: @picture)
-    @enquiries = Enquiry.where(picture: @picture)
-  end
+  def show; end
+
+  def modal; end
 
   # GET /pictures/new
   def new
@@ -30,7 +28,7 @@ class PicturesController < ApplicationController
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully created." }
+        format.html { redirect_to picture_url(@picture), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -44,7 +42,7 @@ class PicturesController < ApplicationController
     authorize @picture
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to picture_url(@picture), notice: "Picture was successfully updated." }
+        format.html { redirect_to picture_url(@picture), notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +57,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: "Picture was successfully destroyed." }
+      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -73,6 +71,6 @@ class PicturesController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def picture_params
-    params.require(:picture).permit(:name, :img)
+    params.require(:picture).permit(:name, :author, :description, :img)
   end
 end

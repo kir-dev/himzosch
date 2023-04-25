@@ -9,6 +9,7 @@ hu:
       user: "Felhasználó"
       site_content: "Tartalom"
       picture: "Kép"
+      member: "Tag"
     attributes:
       article:
         title: "Cím"
@@ -29,6 +30,11 @@ hu:
         author: "Készítő"
         description: "Leírás"
         img: "Képfájl"
+      member:
+        name: "Név"
+        rank: "Titulus"
+        bio: "Bio"
+        image: "Kép"
   user_role:
     ordinary: "Felhasználó"
     member: "Tag"

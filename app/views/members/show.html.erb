@@ -1,0 +1,27 @@
+<div class="grid grid-cols-2 gap-4 place-content-center">
+  <div class="max-w-xs">
+    <% if @member.image.present? %>
+      <%= image_tag @member.image, alt: @member.name %>
+    <% else %>
+      <img src="<%= image_url("default_prof_pic.png") %>" >
+    <% end %>
+  </div>
+  <div>
+
+    <div>
+      <span class="font-bold">Név: </span>
+      <%= @member.name %>
+      <hr/>
+      <span class="font-bold">Titulus: </span>
+      <%= @member.rank %>
+      <hr/>
+      <span class="font-bold">Bio: </span>
+      <%= @member.bio %>
+    </div>
+
+  </div>
+  <br>
+  <div>
+    <%= link_to 'Vissza a csapatunkhoz', members_path, class: 'btn btn-secondary ', data: { turbo: false } %>
+  </div>
+</div>

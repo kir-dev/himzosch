@@ -1,0 +1,17 @@
+<div class="w-full">
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl mb-5">Csapatunk</h1>
+    <% if policy(Member).new? %>
+      <%= link_to 'Tag hozzáadása', new_member_path, class: "btn btn-secondary" %>
+    <% end %>
+  </div>
+
+  <div class="flex flex-row flex-wrap">
+    <% @members.each do |member| %>
+      <div class="m-4">
+        <%= render member %>
+      </div>
+    <% end %>
+  </div>
+</div>

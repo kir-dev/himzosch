@@ -1,10 +1,10 @@
 <div id="<%= dom_id member %>">
 
-  <div class="relative max-w-sm rounded shadow-lg bg-white m-2 hover:shadow-xl">
+  <div class="relative rounded shadow-lg bg-white m-2 max-w-[200px] h-96 justify-self-center">
     <% if member.image.present? %>
-      <%= image_tag member.image, alt: member.name, class: 'max-h-80 brightness-90 hover:brightness-100 rounded-t-lg' %>
+      <%= image_tag member.image, alt: member.name, class: 'rounded-t-lg max-w-[200px]' %>
     <% else %>
-      <img src="<%= image_url("default_prof_pic.png") %>" class="max-h-80 brightness-90 hover:brightness-100 rounded-t-lg" %>
+      <img src="<%= image_url("default-avatar-photo.jpg") %>" class="rounded-t-lg max-w-[200px]" %>
     <% end %>
     <span class="bg-gray-700 rounded-md text-white text-sm p-1 absolute -top-1 -left-1 m-4">
       <%= member.rank.upcase %>
@@ -23,8 +23,11 @@
     <div class="px-6 py-4 ">
       <span class=" font-bold text-xl mb-2 text-primary"> <%= member.name%> </span>
 
-      <div class="text-gray-800 italic">
-        <%= member.bio %>
+      <div class="text-gray-800 italic break-words">
+        <%= member.bio.truncate_words(9) %>
+        <% if member.bio.length > 9 %>
+          <%= link_to 'tovább', member_path(member), class: 'text-red underline' %>
+        <% end %>
       </div>
     </div>
   </div>

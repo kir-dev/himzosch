@@ -1,27 +1,27 @@
-<div class="grid grid-cols-2 gap-4 place-content-center">
-  <div class="max-w-xs">
+<div>
+  <%= link_to 'Vissza a csapatunkhoz', members_path, class: 'btn btn-secondary m-4', data: { turbo: false } %>
+</div>
+<br>
+<div class="flex flex-row flex-nowrap gap-4 place-content-center">
     <% if @member.image.present? %>
-      <%= image_tag @member.image, alt: @member.name %>
+      <%= image_tag @member.image , alt: @member.name , class: 'rounded-lg max-w-[200px] justify-self-end' %>
     <% else %>
-      <img src="<%= image_url("default_prof_pic.png") %>" >
+      <img src="<%= image_url("default-avatar-photo.jpg") %>" class="rounded-lg max-w-[200px] justify-self-end" >
     <% end %>
-  </div>
   <div>
 
     <div>
-      <span class="font-bold">Név: </span>
-      <%= @member.name %>
-      <hr/>
-      <span class="font-bold">Titulus: </span>
-      <%= @member.rank %>
-      <hr/>
-      <span class="font-bold">Bio: </span>
-      <%= @member.bio %>
+      <span class=" font-bold text-xl mb-2 text-primary"> <%= @member.name %> </span>
+      <br>
+      <span class="bg-gray-700 rounded-md text-white text-sm p-1">
+        <%= @member.rank.upcase %>
+      </span>
+      <br>
+      <div class="text-gray-800 italic break-words">
+        <%= @member.bio %>
+      </div>
     </div>
 
   </div>
   <br>
-  <div>
-    <%= link_to 'Vissza a csapatunkhoz', members_path, class: 'btn btn-secondary ', data: { turbo: false } %>
-  </div>
 </div>

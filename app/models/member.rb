@@ -4,4 +4,5 @@ class Member < ApplicationRecord
   validates :name, presence: true, length: { maximum: 30 }
   validates :rank, presence: true, length: { maximum: 15 }
   validates :bio, length: { maximum: 200 }
+  validates :image, aspect_ratio: :square, processable_image: true
 end

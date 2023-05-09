@@ -4,6 +4,10 @@ hu:
     errors:
       messages:
         record_invalid: Sikertelen validálás %{errors}
+        content_type_invalid: " nem megfelelő a kiterjesztés"
+        aspect_ratio_not_square: " muszáj, hogy négyzet legyen."
+        image_not_processable: " nem feldolgozható."
+        image_metadata_missing: " nem érvényes kép."
     models:
       article: "Cikk"
       user: "Felhasználó"

@@ -1,0 +1,34 @@
+<div id="<%= dom_id member %>">
+
+  <div class="relative rounded shadow-lg bg-white m-2 max-w-[200px] h-96 justify-self-center">
+    <% if member.image.present? %>
+      <%= image_tag member.image, alt: member.name, class: 'rounded-t-lg max-w-[200px]' %>
+    <% else %>
+      <img src="<%= image_url("default-avatar-photo.jpg") %>" class="rounded-t-lg max-w-[200px]" %>
+    <% end %>
+    <span class="bg-gray-700 rounded-md text-white text-sm p-1 absolute -top-1 -left-1 m-4">
+      <%= member.rank.upcase %>
+    </span>
+    <% if policy(member).edit? %>
+      <div class="absolute -top-1 -right-1 flex justify-start">
+        <%= link_to edit_member_path(member), class: 'shadow-lg' do %>
+          <i class="fa-solid fa-pen-to-square icon-edit mr-2 shadow-lg"></i>
+        <% end %>
+
+        <%= button_to member_path(member), class: 'shadow-lg', method: :delete, form: { data: { 'turbo_confirm': 'Biztos vagy benne? A törlés véglges!' } } do %>
+          <i class="fa-solid fa-trash icon-delete shadow-lg"></i>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="px-6 py-4 ">
+      <span class=" font-bold text-xl mb-2 text-primary"> <%= member.name%> </span>
+
+      <div class="text-gray-800 italic break-words">
+        <%= member.bio.truncate_words(9) %>
+        <% if member.bio.length > 9 %>
+          <%= link_to 'tovább', member_path(member), class: 'text-red underline' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show, :edit, :update]
   resources :articles
   resources :site_content, only: [:edit, :update]
+  resources :members
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/orders', to: 'orders#index', as: :orders

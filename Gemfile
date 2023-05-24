@@ -43,7 +43,11 @@ gem 'multi_json'
 gem 'omniauth-rails_csrf_protection'
 
 # An Auth.sch strategy for OmniAuth 1.x (https://github.com/kiskoza/omniauth-authsch)
-gem 'omniauth-authsch'
+# Temporary removed because implementation changed at AuthSCH
+# gem 'omniauth-authsch'
+
+# This gem contains a generic OAuth2 strategy for OmniAuth.
+gem 'omniauth-oauth2'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"

@@ -188,8 +188,6 @@ GEM
       hashie (>= 3.4.6)
       rack (>= 2.2.3)
       rack-protection
-    omniauth-authsch (0.9.0)
-      omniauth-oauth2 (~> 1.4)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
       omniauth (~> 2.0)
@@ -345,7 +343,7 @@ DEPENDENCIES
   jbuilder
   letter_opener_web (~> 2.0)
   multi_json
-  omniauth-authsch
+  omniauth-oauth2
   omniauth-rails_csrf_protection
   pg (~> 1.1)
   puma (~> 5.0)
@@ -368,4 +366,4 @@ RUBY VERSION
    ruby 3.0.3p157
 
 BUNDLED WITH
-   2.4.6
+   2.3.9

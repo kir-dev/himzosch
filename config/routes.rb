@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :site_content, only: [:edit, :update]
   resources :members
+  resources :labels, except: [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/orders', to: 'orders#index', as: :orders

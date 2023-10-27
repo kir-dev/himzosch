@@ -15,6 +15,7 @@ hu:
       picture: "Kép"
       member: "Tag"
       label: "Címke"
+      design: "Folt"
     attributes:
       article:
         title: "Cím"
@@ -42,6 +43,12 @@ hu:
         image: "Kép"
       label:
         name: "Név"
+      design:
+        name: "Név"
+        description: "Leírás"
+        created: "Létrehozás dátuma"
+        labels: "Címkék"
+        image: "Kép"
   user_role:
     ordinary: "Felhasználó"
     member: "Tag"

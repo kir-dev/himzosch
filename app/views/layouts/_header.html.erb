@@ -21,17 +21,14 @@
     <div class="hidden md:block">
       <div class="flex flex-row items-center justify-around space-x-7 lg:space-x-10">
         <%= link_to "Hírek", articles_path, :class => "nav-link" %>
-        <% if current_user.present? && policy(Order).new? %>
-          <div class="dropdown">
-            <a>Rendelés</a>
-            <div class="dropdown-content">
-              <%= link_to "Url szerkesztése", new_order_path, :class => "item" %>
-              <%= link_to "Form", orders_path %>
-            </div>
+        <div class="dropdown">
+          <a>Rendelés</a>
+          <div class="dropdown-content">
+            <%= link_to "Legacy foltok", designs_path %>
+            <%= link_to "Form", orders_path %>
+            <%= link_to "Url szerkesztése", new_order_path, :class => "item" if current_user.present? && policy(Order).new? %>
           </div>
-        <% else %>
-          <%= link_to 'Rendelés', orders_path, class: 'nav-link', data: { turbo: false } %>
-        <% end %>
+        </div>
         <%= link_to 'GYIK', faq_path, class: 'nav-link' %>
         <%= link_to 'Jelentkezés a körbe', join_path, class: 'nav-link' %>
         <%= link_to 'Galéria', pictures_path, class: 'nav-link', data: { turbo: false } %>

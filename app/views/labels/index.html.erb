@@ -2,7 +2,10 @@
 
   <div class="flex justify-between items-center">
     <h1 class="font-bold text-4xl mb-5">Címkék</h1>
-    <%= link_to 'Címke hozzáadása', new_label_path, class: "btn btn-secondary" %>
+    <span>
+      <%= link_to 'Címke hozzáadása', new_label_path, class: "btn btn-secondary m-4" %>
+      <%= link_to 'Legacy foltok', designs_path, class: "btn btn-secondary m-4" %>
+    </span>  
   </div>
 
   <div class="flex flex-row flex-wrap" style="flex-wrap: wrap;" >

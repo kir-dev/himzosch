@@ -1,0 +1,39 @@
+<div id="<%= dom_id design %>">
+
+  <div class="relative rounded shadow-lg bg-white m-2 max-w-[200px] h-96 justify-self-center">
+    <%= image_tag design.image, alt: design.name, class: 'rounded-t-lg max-w-[200px]' %>
+    <% if policy(design).edit? %>
+      <div class="absolute -top-1 -right-1 flex justify-start">
+        <%= link_to edit_design_path(design), class: 'shadow-lg' do %>
+          <i class="fa-solid fa-pen-to-square icon-edit mr-2 shadow-lg"></i>
+        <% end %>
+
+        <%= button_to design_path(design), class: 'shadow-lg', method: :delete, form: { data: { 'turbo_confirm': 'Biztos vagy benne? A törlés véglges!' } } do %>
+          <i class="fa-solid fa-trash icon-delete shadow-lg"></i>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="px-6 py-4 ">
+      <span class=" font-bold text-xl mb-2 text-primary"> <%= link_to design.name, design_path(design)%> </span>
+
+      <%= design.created.strftime("%Y.%m.%d.") %>
+      
+      <% if(false) %>
+        <% design.labels.each do |label| %>
+          <div class="m-1 justify-self-center">
+            <div class="bg-gray-700 rounded-md text-white text-sm p-1 m-2">
+              <%= label.name.upcase %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="text-gray-800 italic break-words">
+        <%= design.description.truncate_words(9) %>
+        <% if design.description.length > 9 %>
+          <%= link_to 'tovább', design_path(design), class: 'text-red underline' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

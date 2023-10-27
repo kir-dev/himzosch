@@ -7,12 +7,15 @@ Rails.application.routes.draw do
       get 'modal'
     end
   end
+  
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :edit, :update]
   resources :articles
   resources :site_content, only: [:edit, :update]
   resources :members
   resources :labels, except: [:show]
+  resources :designs
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   get '/orders', to: 'orders#index', as: :orders

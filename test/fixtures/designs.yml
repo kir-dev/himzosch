@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: designs
+#
+#  id          :bigint           not null, primary key
+#  created     :datetime
+#  description :text
+#  name        :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyText
+  created: 2023-10-27 08:17:44
+
+two:
+  name: MyString
+  description: MyText
+  created: 2023-10-27 08:17:44

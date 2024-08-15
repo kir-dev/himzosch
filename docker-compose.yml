@@ -8,6 +8,7 @@ services:
       - himzosch_db:/var/lib/postgresql/data
     networks:
       - himzosch_network
+    restart: always
   web:
     build: .
     command: "bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -24,6 +25,7 @@ services:
       - himzosch_network
     volumes:
       - image_folder:/himzosch/storage/
+    restart: always
 volumes:
   himzosch_db:
     external:

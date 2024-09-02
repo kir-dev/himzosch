@@ -8,7 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Label < ApplicationRecord
-    #has_and_belongs_to_many :designs
+  has_many :design_labels, dependent: :destroy
+  has_many :designs, through: :design_labels
 
-    validates :name, presence: true, length: { maximum: 15 }
+  validates :name, presence: true, length: { maximum: 15 }
 end

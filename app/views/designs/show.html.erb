@@ -11,15 +11,13 @@
       <br>
       <%= @design.created.strftime("%Y.%m.%d.") %>
       <br>
-      <% if(false) %>
-        <% d@esign.labels.each do |label| %>
-          <div class="m-1 justify-self-center">
-            <div class="bg-gray-700 rounded-md text-white text-sm p-1 m-2">
-              <%= label.name.upcase %>
-            </div>
+      <div class="flex flex-row flex-wrap m-0 p-0" style="flex-wrap: wrap;">
+        <% @design.labels.each do |label| %>
+          <div class="bg-gray-700 rounded-md text-white text-sm p-1 m-1">
+            <%= label.name.upcase %>
           </div>
         <% end %>
-      <% end %>
+      </div>
       <br>
       <div class="text-gray-800 italic break-words">
         <%= @design.description %>

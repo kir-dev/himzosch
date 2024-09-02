@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       get 'modal'
     end
   end
-  
+
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   resources :users, only: [:index, :show, :edit, :update]
   resources :articles
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get '/orders', to: 'orders#index', as: :orders
   get '/orders/new', to: 'orders#new', as: :new_order
   post '/orders', to: 'orders#create', as: :create_order
+
+  get '/designs/:design_id/labels', to: 'designs#edit_labels', as: :design_edit_labels
+  post '/designs/:design_id/addlabel/:label_id', to: 'designs#add_label', as: :design_add_label
+  post '/designs/:design_id/removelabel/:label_id', to: 'designs#remove_label', as: :design_remove_label
 
   # Defines the root path route ("/")
   root 'site#home'

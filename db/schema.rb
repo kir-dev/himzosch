@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_27_061744) do
+ActiveRecord::Schema[7.0].define(version: 2024_09_02_070832) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_061744) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "design_labels", force: :cascade do |t|
+    t.bigint "design_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["design_id"], name: "index_design_labels_on_design_id"
+    t.index ["label_id"], name: "index_design_labels_on_label_id"
   end
 
   create_table "designs", force: :cascade do |t|
@@ -129,6 +138,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_27_061744) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "design_labels", "designs"
+  add_foreign_key "design_labels", "labels"
   add_foreign_key "enquiries", "pictures"
   add_foreign_key "enquiries", "users"
 end

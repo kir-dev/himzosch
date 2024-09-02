@@ -1,0 +1,28 @@
+<div class="w-full">
+  <div class="mb-5">
+    <%= link_to 'Vissza a foltokhoz', designs_path, class: 'btn btn-secondary', data: { turbo: false } %>
+  </div>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl mb-5"><%= @design.name %></h1>
+  </div>
+
+  <p>Kattints a címkére az aktiváláshoz vagy a deaktiváláshoz!</p>
+  <h3 class="font-bold text-xl">Aktív címkék:</h1>
+  <div class="flex flex-row flex-wrap" style="flex-wrap: wrap;">
+    <% @active_tags.each do |tag| %>
+      <div class="bg-gray-700 rounded-md text-white text-sm p-1 m-2">
+        <%= button_to tag.name.upcase, design_remove_label_url(@design, tag), method: :post %>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class="font-bold text-xl">Inaktív címkék:</h1>
+  <div class="flex flex-row flex-wrap" style="flex-wrap: wrap;">
+    <% @inactive_tags.each do |tag| %>
+      <div class="bg-gray-700 rounded-md text-white text-sm p-1 m-2">
+        <%= button_to tag.name.upcase, design_add_label_url(@design, tag), method: :post %>
+      </div>
+    <% end %>
+  </div>
+</div>

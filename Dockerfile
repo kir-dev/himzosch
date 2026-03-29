@@ -4,7 +4,7 @@ RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
     curl \
     gnupg2
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash -\
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -\
 && apt-get update -qq && apt-get install -yq --no-install-recommends \
     build-essential \
     less \

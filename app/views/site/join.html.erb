@@ -1,4 +1,5 @@
 <% if ENV["HIMZOSCH_JOIN_URL"].present? %>
+  <div class="mb-2"><a href="<%= ENV["HIMZOSCH_JOIN_URL"] %>" class="text-right italic text-sm" target="_blank">Jelentkezős link megnyitása új tabon</a></div>
   <iframe src="<%= ENV["HIMZOSCH_JOIN_URL"] %>" class="w-2/3 mobile:w-11/12" height="1000" frameborder="0" style="margin-left: auto;margin-right: auto;">Betöltés…</iframe>
 <% else %>
   <p class="text-center text-3xl">Jelenleg nincs lehetőség a jelentkezésre</p>
